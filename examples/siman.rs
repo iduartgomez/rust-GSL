@@ -98,9 +98,8 @@ fn main() {
     let mut r = rgsl::Rng::new(&t).unwrap();
 
     let params = rgsl::SimAnnealingParams::new(200, 1000, 1.0, 1.0, 0.008, 1.003, 2.0e-6);
-    // single run
     let siman = rgsl::SimAnnealing::new(15.5, E1, S1, M1, Some(P1), params);
-    siman.solve(&mut r);
+    siman.solve(&mut r); // single run
     println!(); // ignore this line, just there to split the log of both method calls
-    siman.solve_many(&mut r);
+    siman.solve_many(&mut r); // multiple runs, picks best result
 }

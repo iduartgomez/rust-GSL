@@ -1,5 +1,5 @@
 /*!
-# 25 Simulated Annealing
+# Simulated Annealing
 
 Stochastic search techniques are used when the structure of a space is not well understood or
 is not smooth, so that techniques like Newton’s method (which requires calculating Jacobian
@@ -222,7 +222,10 @@ impl<T> SimAnnealing<T>
     /// in the space.
     ///
     /// If the argument `print_pos` is not None, a debugging log will be printed to
-    /// stdout with the following columns: ```#-iter #-evals temperature position energy best_energy```
+    /// stdout with the following columns: 
+    ///
+    /// > #-iter #-evals temperature position energy best_energy
+    ///
     /// and the output of the function print position itself.
     pub fn solve(&self, rng: &mut ::Rng) -> T {
         let mut x = self.x0_p.clone();
@@ -395,7 +398,7 @@ impl<T> SimAnnealing<T>
         free (sum_probs);
     }
     */
-    /// Like the function solve, but performs multiple runs and returns the best result.
+    /// Like the function solve, but performs multiple runs effitiently and returns the best result.
     pub fn solve_many(&self, rng: &mut ::Rng) -> T {
         let mut x = self.x0_p.clone();
         let mut new_x = Vec::with_capacity(self.params.n_tries);
